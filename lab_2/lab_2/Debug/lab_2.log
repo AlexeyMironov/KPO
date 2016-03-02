@@ -1,0 +1,33 @@
+﻿Build started 02.03.2016 18:33:32.
+     1>Project "h:\Programm\3_course\КПО\lab_2_test\lab_2\lab_2\lab_2.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\lab_2.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt MyLongNumber.cpp lab_2.cpp
+         lab_2.cpp
+     1>h:\programm\3_course\кпо\lab_2_test\lab_2\lab_2\lab_2.cpp(35): warning C4018: '<' : signed/unsigned mismatch
+     1>h:\programm\3_course\кпо\lab_2_test\lab_2\lab_2\lab_2.cpp(43): warning C4018: '<' : signed/unsigned mismatch
+     1>h:\programm\3_course\кпо\lab_2_test\lab_2\lab_2\lab_2.cpp(52): warning C4018: '<' : signed/unsigned mismatch
+     1>h:\programm\3_course\кпо\lab_2_test\lab_2\lab_2\lab_2.cpp(61): warning C4018: '<' : signed/unsigned mismatch
+         MyLongNumber.cpp
+     1>h:\programm\3_course\кпо\lab_2_test\lab_2\lab_2\mylongnumber.cpp(37): warning C4018: '<' : signed/unsigned mismatch
+     1>h:\programm\3_course\кпо\lab_2_test\lab_2\lab_2\mylongnumber.cpp(110): warning C4018: '<' : signed/unsigned mismatch
+     1>h:\programm\3_course\кпо\lab_2_test\lab_2\lab_2\mylongnumber.cpp(112): warning C4018: '<' : signed/unsigned mismatch
+     1>h:\programm\3_course\кпо\lab_2_test\lab_2\lab_2\mylongnumber.cpp(122): warning C4018: '<' : signed/unsigned mismatch
+     1>h:\programm\3_course\кпо\lab_2_test\lab_2\lab_2\mylongnumber.cpp(145): warning C4018: '<' : signed/unsigned mismatch
+     1>h:\programm\3_course\кпо\lab_2_test\lab_2\lab_2\mylongnumber.cpp(186): warning C4018: '<' : signed/unsigned mismatch
+     1>h:\programm\3_course\кпо\lab_2_test\lab_2\lab_2\mylongnumber.cpp(187): warning C4018: '<' : signed/unsigned mismatch
+     1>h:\programm\3_course\кпо\lab_2_test\lab_2\lab_2\mylongnumber.cpp(190): warning C4018: '<' : signed/unsigned mismatch
+     1>h:\programm\3_course\кпо\lab_2_test\lab_2\lab_2\mylongnumber.cpp(235): warning C4018: '<=' : signed/unsigned mismatch
+     1>h:\programm\3_course\кпо\lab_2_test\lab_2\lab_2\mylongnumber.cpp(247): warning C4018: '<=' : signed/unsigned mismatch
+     1>h:\programm\3_course\кпо\lab_2_test\lab_2\lab_2\mylongnumber.cpp(265): warning C4018: '<=' : signed/unsigned mismatch
+     1>h:\programm\3_course\кпо\lab_2_test\lab_2\lab_2\mylongnumber.cpp(280): warning C4018: '<=' : signed/unsigned mismatch
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"H:\Programm\3_course\КПО\lab_2_test\lab_2\Debug\lab_2.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"H:\Programm\3_course\КПО\lab_2_test\lab_2\Debug\lab_2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"H:\Programm\3_course\КПО\lab_2_test\lab_2\Debug\lab_2.lib" /MACHINE:X86 Debug\lab_2.obj
+         Debug\MyLongNumber.obj
+         Debug\stdafx.obj
+         lab_2.vcxproj -> H:\Programm\3_course\КПО\lab_2_test\lab_2\Debug\lab_2.exe
+     1>Done Building Project "h:\Programm\3_course\КПО\lab_2_test\lab_2\lab_2\lab_2.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.73
