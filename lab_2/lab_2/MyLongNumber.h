@@ -3,23 +3,20 @@
 class CMyLongNumber final
 {
 public:
+	CMyLongNumber(std::string number1, std::string mathOperator, std::string number2);
 	CMyLongNumber(std::vector<int> number);
 	~CMyLongNumber();
 
+	vector<int> StringToVectorInt(string &number) const;
 	vector<int> GetNumber() const;
-	//vector<int> Subtraction() const;
-	//void LevelUp(vector<int> &num, int &amount);
-	int GetLargestNumber(const CMyLongNumber &num1, const CMyLongNumber &num2);
+	int GetLargestNumber(vector<int> &a, vector<int> &b);
 
 private:
 	std::vector<int> m_number;
-	//int amount;
-	//vector<int> num;
+	std::string m_number1, m_number2, m_mathOperator;
 };
 
 const CMyLongNumber operator + (const CMyLongNumber &num1, const CMyLongNumber &num2);
 const CMyLongNumber operator - (CMyLongNumber &num1, CMyLongNumber &num2);
 const CMyLongNumber operator * (const CMyLongNumber &num1, const CMyLongNumber &num2);
-const CMyLongNumber operator / (const CMyLongNumber &num1, CMyLongNumber &num2);
-
-//std::ifstream & operator>>(std::ifstream & stream, CMyLongNumber & number);
+const CMyLongNumber operator / (const CMyLongNumber &num1, const CMyLongNumber &num2);

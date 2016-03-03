@@ -1,9 +1,34 @@
 #include "stdafx.h"
 #include "MyLongNumber.h"
 
+CMyLongNumber::CMyLongNumber(string number1, string mathOperator, string number2)
+	: m_number1(number1)
+	, m_mathOperator(mathOperator)
+	, m_number2(number2)
+{
+	CMyLongNumber num1(StringToVectorInt(m_number1));
+	CMyLongNumber num2(StringToVectorInt(m_number2));
+	//CMyLongNumber result = num1 + num2;
+	if (m_mathOperator == "+")
+	{
+		 m_number = (num1 + num2).GetNumber();
+	}
+	else if (m_mathOperator == "-")
+	{
+		m_number = (num1 - num2).GetNumber();
+	}
+	else if (m_mathOperator == "*")
+	{
+		m_number = (num1 * num2).GetNumber();
+	}
+	else if (m_mathOperator == "/")
+	{
+		m_number = (num1 / num2).GetNumber();
+	}
+}
 
 CMyLongNumber::CMyLongNumber(vector<int> number)
-	:m_number(number)
+	: m_number(number)
 {
 }
 
@@ -17,7 +42,17 @@ vector<int> CMyLongNumber::GetNumber() const
 	return m_number;
 }
 
-
+vector<int> CMyLongNumber::StringToVectorInt(string &number) const
+{
+	vector<int> result;
+	int num;
+	for (int i = 0; i < number.size(); i++)
+	{
+		result.push_back(static_cast<int>(number[i]) - 48);
+	}
+	reverse(result.begin(), result.end());
+	return result;
+}
 
 const CMyLongNumber operator + (const CMyLongNumber &num1, const CMyLongNumber &num2)
 {
@@ -101,7 +136,6 @@ vector<int> Subtraction(vector<int> a, vector<int> b)
 		a = b;
 		b = temp;
 	}
-	
 
 	unsigned int length = a.size();
 	vector<int> result;
@@ -165,152 +199,158 @@ const CMyLongNumber operator - (CMyLongNumber &num1, CMyLongNumber &num2)
 
 const CMyLongNumber operator * (const CMyLongNumber &num1, const CMyLongNumber &num2)
 {
-	unsigned int length = num1.GetNumber().size() + num2.GetNumber().size() + 1;
-	vector<int> result;
-	result.resize(length);
 	vector<int> a = num1.GetNumber();
 	vector<int> b = num2.GetNumber();
-	bool isLessZero = false;
-	if (a[a.size() - 1] < 0)
+	vector<int> result;
+	if (a[a.size() - 1] == 0 || b[b.size() - 1] == 0)
 	{
-		a[a.size() - 1] = -a[a.size() - 1];
-		isLessZero = true;
+		result.push_back(0);
 	}
-
-	else if (b[b.size() - 1] < 0)
+	else
 	{
-		b[b.size() - 1] = -b[b.size() - 1];
-		isLessZero = true;
-	}
+		unsigned int length = num1.GetNumber().size() + num2.GetNumber().size() + 1;
+		result.resize(length);
+		bool isLessZero = false;
+		if (a[a.size() - 1] < 0)
+		{
+			a[a.size() - 1] = -a[a.size() - 1];
+			isLessZero = true;
+		}
 
-	for (int ix = 0; ix < a.size(); ix++)
-		for (int jx = 0; jx < b.size(); jx++)
-			result[ix + jx] += a[ix] * b[jx];
+		else if (b[b.size() - 1] < 0)
+		{
+			b[b.size() - 1] = -b[b.size() - 1];
+			isLessZero = true;
+		}
 
-	for (int ix = 0; ix < length - 1; ix++)
-	{
-		result[ix + 1] += result[ix] / 10;
-		result[ix] %= 10;
-	}
+		for (int ix = 0; ix < a.size(); ix++)
+			for (int jx = 0; jx < b.size(); jx++)
+				result[ix + jx] += a[ix] * b[jx];
 
-	reverse(result.begin(), result.end());
-	int i = 0;
-	while (result[i] == 0)  ///
-	{
-		result.erase(result.begin()+i);
-		i++;
-	}
+		for (int ix = 0; ix < length - 1; ix++)
+		{
+			result[ix + 1] += result[ix] / 10;
+			result[ix] %= 10;
+		}
 
-	if (isLessZero)
-	{
-		result[0] = -result[0];
+		reverse(result.begin(), result.end());
+		int i = 0;
+		while (result[i] == 0)  
+		{
+			result.erase(result.begin() + i);
+			i++;
+		}
+
+		if (isLessZero)
+		{
+			result[0] = -result[0];
+		}
 	}
 	
 	return CMyLongNumber(result);
 }
 
-const CMyLongNumber operator / (const CMyLongNumber &num1, CMyLongNumber &num2)
+const CMyLongNumber operator / (const CMyLongNumber &num1, const CMyLongNumber &num2)
 {
 	vector<int> a = num1.GetNumber();
 	vector<int> b = num2.GetNumber();
+	vector<int> result;
 	reverse(a.begin(), a.end());
 	reverse(b.begin(), b.end());
 
-	int curLen = b.size(); //меньша€ 
-	int curRes = 0;
-	vector<int> result; 
-	vector<int> curNum;    
-	int ix = 0;
-	for (ix = 0; ix < curLen; ix++)
+	if (b[0] != 0)
 	{
-		curNum.push_back(a[ix]);
-	}
-
-	
-	for (ix = 0; ix < curLen; ix++)
-	{
-		if (curNum[ix] < b[ix])
+		if (a[0] == 0)
 		{
-			curLen++;
-			if (curLen <= a.size())
-			{
-				curNum.push_back(a[curLen - 1]);
-			}
-			ix = curLen;
+			result.push_back(0);
 		}
-		ix++;
-	}
-
-	reverse(b.begin(), b.end());
-	reverse(curNum.begin(), curNum.end());
-
-	while (curLen <= a.size())
-	{
-		bool flag = true;
-		while (flag)
+		else
 		{
-			if (GetLargestNumber(curNum, b) == 1)
+			int curLen = b.size(); //задаем начальную позицию
+			int curRes = 0;
+			vector<int> curNum;
+			int ix = 0;
+
+			//берем часть массива делимого размером с делитель
+			for (ix = 0; ix < curLen; ix++)
 			{
-				curRes++;
-				curNum = Subtraction(curNum, b);
-				reverse(curNum.begin(), curNum.end());
-				if (curNum[curNum.size() - 1] == 0)  ///
-				{
-					curNum.pop_back();
-				}
+				curNum.push_back(a[ix]);
 			}
-			else if (GetLargestNumber(curNum, b) == 2)
+
+			//если делитель больше, увеличиваем эту часть, добавл€€ следующую цифру из делимого
+			for (ix = 0; ix < curLen; ix++)
 			{
-				curLen++;
-				if (curLen <= a.size())
+				if (curNum[ix] < b[ix])
 				{
-					reverse(curNum.begin(), curNum.end());
-					curNum.push_back(a[curLen - 1]);
-					reverse(curNum.begin(), curNum.end());
-				}
-				flag = false;
-			}
-			else if (GetLargestNumber(curNum, b) == 3)
-			{
-				curRes++;
-				result.push_back(curRes);
-				curRes = 0;
-				curLen++;
-				curNum = {};
-				while (curLen <= a.size())
-				{
-					if (a[curLen - 1] == 0)
-					{
-						result.push_back(0);
-					}
-					else
+					curLen++;
+					if (curLen <= a.size())
 					{
 						curNum.push_back(a[curLen - 1]);
-					}	
-					curLen++;
+					}
+					ix = curLen;
 				}
-				flag = false;
+				ix++;
 			}
-		}
-		if (curRes > 0)
-		{
-			result.push_back(curRes);
-			curRes = 0;
+
+			reverse(b.begin(), b.end());
+			reverse(curNum.begin(), curNum.end());
+
+			while (curLen <= a.size())
+			{
+				bool isLess = true;
+				while (isLess)
+				{
+					if (GetLargestNumber(curNum, b) == 1)  //остаток > делител€
+					{
+						curRes++;
+						curNum = Subtraction(curNum, b);    //уменьшаем, пока осаток больше делител€
+						reverse(curNum.begin(), curNum.end());
+						if (curNum[curNum.size() - 1] == 0)  //провер€ем на лишние нули
+						{
+							curNum.pop_back();
+						}
+					}
+					else if (GetLargestNumber(curNum, b) == 2)//остаток < делител€
+					{
+						curLen++;
+						if (curLen <= a.size())   //добавл€ем к остатку следующую цифру, если это возможно
+						{
+							reverse(curNum.begin(), curNum.end());
+							curNum.push_back(a[curLen - 1]);
+							reverse(curNum.begin(), curNum.end());
+						}
+						isLess = false;
+					}
+					else if (GetLargestNumber(curNum, b) == 3) //остаток < делител€
+					{
+						curRes++;
+						result.push_back(curRes);   //запись цифры в результат
+						curRes = 0;
+						curLen++;
+						curNum = {};
+						while (curLen <= a.size())
+						{
+							if (a[curLen - 1] == 0)  //если следующа€ цифра делимого = 0
+							{
+								result.push_back(0); //добавл€ем 0 к результату
+							}
+							else
+							{
+								curNum.push_back(a[curLen - 1]); //иначе добавл€ем к остатку следующу
+							}
+							curLen++;
+						}
+						isLess = false;
+					}
+				}
+				if (curRes > 0)
+				{
+					result.push_back(curRes);
+					curRes = 0;
+				}
+			}
 		}
 	}
 
 	return CMyLongNumber(result);
 }
-
-/*std::ifstream & operator>>(std::ifstream & stream, CMyLongNumber & number)
-{
-	vector<int> firstNumber;
-	vector<int> secondNumber;
-	if ((stream >> numerator) && (stream.get() == '/') && (stream >> denominator))
-	{
-		number = CMyLongNumber(numerator, denominator);
-		return stream;
-	}
-
-	return stream;
-}*/
