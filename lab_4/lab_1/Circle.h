@@ -6,13 +6,13 @@ class CCircle final :
 	public IBody
 {
 public:
-	CCircle(SPoint p, double radius);
+	CCircle(SPoint p, CMyLongNumber radius);
 	~CCircle();
 
-	virtual double GetPerimeter() const override;
-	virtual double GetArea() const override;
+	virtual CMyLongNumber GetPerimeter() const override;
+	virtual CMyLongNumber GetArea() const override;
 private:
-	double m_radius;
+	CMyLongNumber m_radius;
 	SPoint m_p;
 };
 

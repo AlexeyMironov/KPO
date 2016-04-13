@@ -1,18 +1,18 @@
 #pragma once
 
+#include "MyLongNumber.h"
+
 struct SPoint
 {
-	int x;
-	int y;
+	CMyLongNumber x;
+	CMyLongNumber y;
 };
 
 struct SShapeParams
 {
-	union{
-		int x;
-		int radius;
-	};
-	int y;
+	CMyLongNumber x;
+	CMyLongNumber radius;
+	CMyLongNumber y;
 
 	operator SPoint();
 };

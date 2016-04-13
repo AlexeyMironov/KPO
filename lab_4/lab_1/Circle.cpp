@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Circle.h"
 
-CCircle::CCircle(SPoint p, double radius)
+CCircle::CCircle(SPoint p, CMyLongNumber radius)
 	: m_radius(radius)
 	, m_p(p)
 {
@@ -12,12 +12,25 @@ CCircle::~CCircle()
 {
 }
 
-double CCircle::GetPerimeter() const
+CMyLongNumber CCircle::GetPerimeter() const
 {
-	return 2 * m_radius * M_PI;
+	std::vector<int> two;
+	two.push_back(2);
+	//std::vector<int> numeratorOfPi = {3,1,4,1,5,9,2,6,5,3,5};
+	std::vector<int> numeratorOfPi = {5,3,5,6,2,9,5,1,4,1,3};
+	std::vector<int> denominatorOfPi = {0,0,0,0,0,0,0,0,0,0,1};
+	CMyLongNumber num1 = two * m_radius * numeratorOfPi;
+	CMyLongNumber num2 = two * m_radius * numeratorOfPi / denominatorOfPi;
+
+	return two * m_radius * numeratorOfPi / denominatorOfPi;
 }
 
-double CCircle::GetArea() const
+CMyLongNumber CCircle::GetArea() const
 {
-	return M_PI * pow(m_radius, 2);
+	std::vector<int> numeratorOfPi = { 5, 3, 5, 6, 2, 9, 5, 1, 4, 1, 3 };
+	std::vector<int> denominatorOfPi = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 };
+	CMyLongNumber num1 = pow(m_radius, 2) * numeratorOfPi;
+	CMyLongNumber num2 = pow(m_radius, 2) * numeratorOfPi / denominatorOfPi;
+	//return m_pi * pow(m_radius, 2);
+	return pow(m_radius, 2) * numeratorOfPi / denominatorOfPi;
 }

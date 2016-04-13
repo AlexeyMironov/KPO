@@ -9,8 +9,8 @@ class CRectangle final :
 public:
 	CRectangle(SPoint p1, SPoint p2);
 	~CRectangle();
-	virtual double GetPerimeter() const override;
-	virtual double GetArea() const override;
+	virtual CMyLongNumber GetPerimeter() const override;
+	virtual CMyLongNumber GetArea() const override;
 private:
 	SPoint m_p1, m_p2;
 };

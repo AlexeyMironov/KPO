@@ -13,12 +13,14 @@ CRectangle::~CRectangle()
 {
 }
 
-double CRectangle::GetPerimeter() const
+CMyLongNumber CRectangle::GetPerimeter() const
 {
-	return (abs(m_p1.x - m_p2.x) + abs(m_p1.y - m_p2.y)) * 2;
+	std::vector<int> two;
+	two.push_back(2);
+	return ((m_p1.x - m_p2.x) + (m_p1.y - m_p2.y)) * two;
 }
 
-double CRectangle::GetArea() const
+CMyLongNumber CRectangle::GetArea() const
 {
-	return (abs(m_p1.x - m_p2.x) * abs(m_p1.y - m_p2.y));
+	return ((m_p1.x - m_p2.x) * (m_p1.y - m_p2.y));
 }

@@ -3,12 +3,15 @@
 
 #include "stdafx.h"
 #include <algorithm>
-#include <memory>
 
+#include "MyLongNumber.h"
 #include "Body.h"
 #include "Circle.h"
 #include "Rectangle.h"
 #include "Triangle.h"
+#include "TriangleFactory.h"
+#include "RectangleFactory.h"
+#include "CircleFactory.h"
 
 using namespace std;
 
@@ -19,7 +22,7 @@ typedef shared_ptr<IBody> CBodyPointer;
 
 SShapeParams PointReader(string &paramsStr)
 {
-	vector<int> args;
+	vector<CMyLongNumber> args;
 	SShapeParams point;
 	const string symbols = " ,;=CRP";
 	size_t end, beg;
@@ -27,7 +30,8 @@ SShapeParams PointReader(string &paramsStr)
 	while ((beg = paramsStr.find_first_not_of(symbols, end)) != paramsStr.npos)
 	{
 		end = paramsStr.find_first_of(symbols, beg);
-		args.push_back(stoi(paramsStr.substr(beg, end - beg)));
+		CMyLongNumber l(vector<int>({ 0 }));
+		args.push_back(l.StringToVectorInt(paramsStr.substr(beg, end - beg)));
 		beg = end;
 	}
 	if (args.size() == 3)
@@ -56,7 +60,7 @@ shared_ptr<IBody> CreateTriangle(ifstream &file)
 		file >> paramsStr;
 		points.push_back(PointReader(paramsStr));
 	}
-	return make_shared<CTriangle>(points[0], points[1], points[2]);
+	return CTriangleFactory::GetInstance()->CreateBody(points);
 }
 
 shared_ptr<IBody> CreateRectangle(ifstream &file)
@@ -68,7 +72,7 @@ shared_ptr<IBody> CreateRectangle(ifstream &file)
 		file >> paramsStr;
 		points.push_back(PointReader(paramsStr));
 	}
-	return make_shared<CRectangle>(points[0], points[1]);
+	return CRectangleFactory::GetInstance()->CreateBody(points);
 }
 
 shared_ptr<IBody> CreateCircle(ifstream &file)
@@ -80,7 +84,7 @@ shared_ptr<IBody> CreateCircle(ifstream &file)
 		file >> paramsStr;
 		points.push_back(PointReader(paramsStr));
 	}
-	return make_shared<CCircle>(points[0], points[1].radius);
+	return CCircleFactory::GetInstance()->CreateBody(points);
 }
 
 
@@ -90,7 +94,7 @@ shared_ptr<IBody> AddBody(string const & typeBody, ifstream &file)
 	shared_ptr<IBody> body;
 
 	if (typeBody == "TRIANGLE:")
-	{
+	{	
 		body = CreateTriangle(file);
 	}
 	else if (typeBody == "RECTANGLE:")
@@ -107,7 +111,7 @@ shared_ptr<IBody> AddBody(string const & typeBody, ifstream &file)
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	string inFileName = "input.txt";
+	string inFileName = "inputT.txt";
 	ifstream inFile(inFileName);
 
 	shared_ptr<IBody> body;
@@ -125,9 +129,15 @@ int _tmain(int argc, _TCHAR* argv[])
 		string typeBody;
 		inFile >> typeBody;
 		body = AddBody(typeBody, inFile);
+		/*CMyLongNumber r = body->GetPerimeter();
+		CMyLongNumber r1 = body->GetArea();
+		CMyLongNumber r2 = body->GetArea();*/
 		outFile << typeBody << " P = " << body->GetPerimeter() << "; S = " << body->GetArea() << endl;
 	}
 
+	CCircleFactory::DeleteInstance();
+	CRectangleFactory::DeleteInstance();
+	CTriangleFactory::DeleteInstance();
 	cout << "completed!" << endl;
 	system("pause");
 	return 0;
