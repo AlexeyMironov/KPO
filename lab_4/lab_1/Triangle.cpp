@@ -32,14 +32,10 @@ CMyLongNumber CTriangle::GetArea() const
 	std::vector<int> two;
 	two.push_back(2);
 	CMyLongNumber semiper = (a + b + c) / two;
-	//CMyLongNumber area = sqrt(semiper * (semiper - a) * (semiper - b) * (semiper - c));
 	return sqrt(semiper * (semiper - a) * (semiper - b) * (semiper - c));
 }
 
 CMyLongNumber CTriangle::GetLineLength(const SPoint &p1, const SPoint &p2)
 {
-	/*CMyLongNumber fst = p1.x - p2.x;
-	CMyLongNumber scnd = pow(fst, 2);
-	CMyLongNumber thrd = fst + scnd; // (p1.y - p2.y, 2)*/
 	return sqrt(pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2));
 }

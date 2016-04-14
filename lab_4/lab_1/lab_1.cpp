@@ -129,10 +129,10 @@ int _tmain(int argc, _TCHAR* argv[])
 		string typeBody;
 		inFile >> typeBody;
 		body = AddBody(typeBody, inFile);
-		/*CMyLongNumber r = body->GetPerimeter();
+		CMyLongNumber r = body->GetPerimeter();
 		CMyLongNumber r1 = body->GetArea();
-		CMyLongNumber r2 = body->GetArea();*/
-		outFile << typeBody << " P = " << body->GetPerimeter() << "; S = " << body->GetArea() << endl;
+		cout << typeBody << " P = " << r << "; S = " << r1 << endl;
+		outFile << typeBody << " P = " << r << "; S = " << r1 << endl;
 	}
 
 	CCircleFactory::DeleteInstance();

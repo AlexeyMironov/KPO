@@ -209,10 +209,6 @@ const CMyLongNumber operator - (const CMyLongNumber &num1, const CMyLongNumber &
 		result.push_back(0);
 	}
 
-	/*else if (GetLargestNumber(a, b) != 1)
-	{
-		result[0] = -result[0];
-	}*/
 	reverse(result.begin(), result.end());
 
 	return CMyLongNumber(result);
@@ -256,11 +252,6 @@ const CMyLongNumber operator * (const CMyLongNumber &num1, const CMyLongNumber &
 
 		reverse(result.begin(), result.end());
 		int i = 0;
-		/*while (result[i] == 0)
-		{
-		result.erase(result.begin() + i);
-		i++;
-		}*/
 
 		for (i = 0; i < result.size(); i++)
 		{
@@ -452,17 +443,17 @@ CMyLongNumber pow(const CMyLongNumber &num, int degree)
 	while (degree > 1)
 	{
 		r = r * num;
-		/*if (degree > 1)
-		{
-			r = r.GetReverseNumber();
-		}*/
 		degree--;
 	}
 	return r;
 }
 
-/*const CMyLongNumber &CMyLongNumber::operator = (int num)
+ostream& operator<<(ostream &ofs, const CMyLongNumber &num)
 {
-	vector<int> value = { num };
-	*this = CMyLongNumber(value);
-}*/
+	vector<int> number = num.GetReverseNumber();
+	for (int i = 0; i < number.size(); i++)
+	{
+		ofs << number[i];
+	}
+	return ofs;
+}
