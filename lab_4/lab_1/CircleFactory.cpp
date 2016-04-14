@@ -7,16 +7,17 @@ std::shared_ptr<IBody> CCircleFactory::CreateBody(std::vector<SShapeParams> poin
 	return std::make_shared<CCircle>(points[0], points[1].radius);
 }
 
-CCircleFactory* CCircleFactory::GetInstance()
+CCircleFactory& CCircleFactory::GetInstance()
 {
-	if (!instance)
+	/*if (!instance)
 	{
 		instance = new CCircleFactory();
-	}
+	}*/
+	static CCircleFactory instance;
 	return instance;
 }
 
-void CCircleFactory::DeleteInstance()
+/*void CCircleFactory::DeleteInstance()
 {
 	if (instance)
 	{
@@ -25,4 +26,4 @@ void CCircleFactory::DeleteInstance()
 	}
 }
 
-CCircleFactory *CCircleFactory::instance = nullptr;
+CCircleFactory *CCircleFactory::instance = nullptr;*/

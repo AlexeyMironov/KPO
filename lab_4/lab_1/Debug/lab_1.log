@@ -1,32 +1,8 @@
-﻿Build started 14.04.2016 17:20:49.
+﻿Build started 14.04.2016 22:34:41.
      1>Project "h:\Programm\3_course\КПО\lab_4_test\lab_1\lab_1.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\lab_1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Circle.cpp MyLongNumber.cpp Rectangle.cpp Triangle.cpp TriangleFactory.cpp lab_1.cpp
-         Triangle.cpp
-         Rectangle.cpp
-         MyLongNumber.cpp
-     1>h:\programm\3_course\кпо\lab_4_test\lab_1\mylongnumber.cpp(38): warning C4018: '<' : signed/unsigned mismatch
-     1>h:\programm\3_course\кпо\lab_4_test\lab_1\mylongnumber.cpp(37): warning C4101: 'num' : unreferenced local variable
-     1>h:\programm\3_course\кпо\lab_4_test\lab_1\mylongnumber.cpp(61): warning C4018: '<' : signed/unsigned mismatch
-     1>h:\programm\3_course\кпо\lab_4_test\lab_1\mylongnumber.cpp(73): warning C4018: '<' : signed/unsigned mismatch
-     1>h:\programm\3_course\кпо\lab_4_test\lab_1\mylongnumber.cpp(146): warning C4018: '<' : signed/unsigned mismatch
-     1>h:\programm\3_course\кпо\lab_4_test\lab_1\mylongnumber.cpp(148): warning C4018: '<' : signed/unsigned mismatch
-     1>h:\programm\3_course\кпо\lab_4_test\lab_1\mylongnumber.cpp(158): warning C4018: '<' : signed/unsigned mismatch
-     1>h:\programm\3_course\кпо\lab_4_test\lab_1\mylongnumber.cpp(194): warning C4018: '<' : signed/unsigned mismatch
-     1>h:\programm\3_course\кпо\lab_4_test\lab_1\mylongnumber.cpp(243): warning C4018: '<' : signed/unsigned mismatch
-     1>h:\programm\3_course\кпо\lab_4_test\lab_1\mylongnumber.cpp(244): warning C4018: '<' : signed/unsigned mismatch
-     1>h:\programm\3_course\кпо\lab_4_test\lab_1\mylongnumber.cpp(247): warning C4018: '<' : signed/unsigned mismatch
-     1>h:\programm\3_course\кпо\lab_4_test\lab_1\mylongnumber.cpp(256): warning C4018: '<' : signed/unsigned mismatch
-     1>h:\programm\3_course\кпо\lab_4_test\lab_1\mylongnumber.cpp(312): warning C4018: '<=' : signed/unsigned mismatch
-     1>h:\programm\3_course\кпо\lab_4_test\lab_1\mylongnumber.cpp(324): warning C4018: '<=' : signed/unsigned mismatch
-     1>h:\programm\3_course\кпо\lab_4_test\lab_1\mylongnumber.cpp(347): warning C4018: '<=' : signed/unsigned mismatch
-     1>h:\programm\3_course\кпо\lab_4_test\lab_1\mylongnumber.cpp(362): warning C4018: '<=' : signed/unsigned mismatch
-     1>h:\programm\3_course\кпо\lab_4_test\lab_1\mylongnumber.cpp(454): warning C4018: '<' : signed/unsigned mismatch
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\lab_1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Circle.cpp
          Circle.cpp
-         Generating Code...
-         Skipping... (no relevant changes detected)
-         lab_1.cpp
-         TriangleFactory.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"H:\Programm\3_course\КПО\lab_4_test\Debug\lab_1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"H:\Programm\3_course\КПО\lab_4_test\Debug\lab_1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"H:\Programm\3_course\КПО\lab_4_test\Debug\lab_1.lib" /MACHINE:X86 Debug\lab_1.res
          Debug\Body.obj
@@ -45,4 +21,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.16
+Time Elapsed 00:00:01.57

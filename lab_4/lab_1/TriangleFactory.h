@@ -8,10 +8,13 @@ class CTriangleFactory
 {
 public:
 	std::shared_ptr<IBody> CreateBody(std::vector<SShapeParams> points) const;
-	static CTriangleFactory* GetInstance();
+	static CTriangleFactory& GetInstance();
 	static void DeleteInstance();
 
 private:
-	static CTriangleFactory *instance;
+	CTriangleFactory(){}
+	CTriangleFactory(const CTriangleFactory&);
+	CTriangleFactory& operator =(CTriangleFactory&);
+	//static CTriangleFactory *instance;
 };
                                                                                                                                                                                                                                                                                                  

@@ -60,7 +60,7 @@ shared_ptr<IBody> CreateTriangle(ifstream &file)
 		file >> paramsStr;
 		points.push_back(PointReader(paramsStr));
 	}
-	return CTriangleFactory::GetInstance()->CreateBody(points);
+	return CTriangleFactory::GetInstance().CreateBody(points);
 }
 
 shared_ptr<IBody> CreateRectangle(ifstream &file)
@@ -72,7 +72,7 @@ shared_ptr<IBody> CreateRectangle(ifstream &file)
 		file >> paramsStr;
 		points.push_back(PointReader(paramsStr));
 	}
-	return CRectangleFactory::GetInstance()->CreateBody(points);
+	return CRectangleFactory::GetInstance().CreateBody(points);
 }
 
 shared_ptr<IBody> CreateCircle(ifstream &file)
@@ -84,7 +84,7 @@ shared_ptr<IBody> CreateCircle(ifstream &file)
 		file >> paramsStr;
 		points.push_back(PointReader(paramsStr));
 	}
-	return CCircleFactory::GetInstance()->CreateBody(points);
+	return CCircleFactory::GetInstance().CreateBody(points);
 }
 
 
@@ -135,9 +135,9 @@ int _tmain(int argc, _TCHAR* argv[])
 		outFile << typeBody << " P = " << r << "; S = " << r1 << endl;
 	}
 
-	CCircleFactory::DeleteInstance();
-	CRectangleFactory::DeleteInstance();
-	CTriangleFactory::DeleteInstance();
+	//CCircleFactory::DeleteInstance();
+	//CRectangleFactory::DeleteInstance();
+	//CTriangleFactory::DeleteInstance();
 	cout << "completed!" << endl;
 	system("pause");
 	return 0;

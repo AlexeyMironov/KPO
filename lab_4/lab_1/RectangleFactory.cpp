@@ -7,22 +7,8 @@ std::shared_ptr<IBody> CRectangleFactory::CreateBody(std::vector<SShapeParams> p
 	return std::make_shared<CRectangle>(points[0], points[1]);
 }
 
-CRectangleFactory* CRectangleFactory::GetInstance()
+CRectangleFactory& CRectangleFactory::GetInstance()
 {
-	if (!instance)
-	{
-		instance = new CRectangleFactory();
-	}
+	static CRectangleFactory instance;
 	return instance;
 }
-
-void CRectangleFactory::DeleteInstance()
-{
-	if (instance)
-	{
-		delete instance;
-		instance = nullptr;
-	}
-}
-
-CRectangleFactory *CRectangleFactory::instance = nullptr;

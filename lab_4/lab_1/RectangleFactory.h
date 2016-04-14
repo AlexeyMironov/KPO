@@ -8,9 +8,12 @@ class CRectangleFactory
 {
 public:
 	std::shared_ptr<IBody> CreateBody(std::vector<SShapeParams> points) const;
-	static CRectangleFactory* GetInstance();
-	static void DeleteInstance();
+	static CRectangleFactory& GetInstance();
+	//static void DeleteInstance();
 
 private:
-	static CRectangleFactory *instance;
+	CRectangleFactory(){}
+	CRectangleFactory(const CRectangleFactory&);
+	CRectangleFactory& operator =(CRectangleFactory&);
+	//static CRectangleFactory *instance;
 };

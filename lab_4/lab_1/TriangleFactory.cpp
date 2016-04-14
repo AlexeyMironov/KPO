@@ -7,16 +7,17 @@ std::shared_ptr<IBody> CTriangleFactory::CreateBody(std::vector<SShapeParams> po
 	return std::make_shared<CTriangle>(points[0], points[1], points[2]);
 }
 
-CTriangleFactory* CTriangleFactory::GetInstance()
+CTriangleFactory& CTriangleFactory::GetInstance()
 {
-	if (!instance)
+	/*if (!instance)
 	{
 		instance = new CTriangleFactory();
-	}
+	}*/
+	static CTriangleFactory instance;
 	return instance;
 }
 
-void CTriangleFactory::DeleteInstance()
+/*void CTriangleFactory::DeleteInstance()
 {
 	if (instance)
 	{
@@ -25,5 +26,5 @@ void CTriangleFactory::DeleteInstance()
 	}
 }
 
-CTriangleFactory *CTriangleFactory::instance = nullptr;
+CTriangleFactory *CTriangleFactory::instance = nullptr;*/
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
